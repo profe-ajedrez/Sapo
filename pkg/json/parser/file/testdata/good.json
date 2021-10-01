@@ -1,0 +1,8 @@
+{
+    "host": "replace with your host",
+    "port": "your port",
+    "username": "your user",    
+    "password": "your pass",
+    "schema": "",
+    "options": ""
+}

@@ -1,0 +1,8 @@
+{
+    "host": "your host",
+    "port": "your port",
+    "username": "Inspectora_japones_Elamira_Tuculo",    
+    "password": "suclave",
+    "schema": "su_esquema",
+    "options": "charset=utf8mb4&parseTime=True&loc=Local"
+}
