@@ -1,0 +1,8 @@
+{
+    "host": "your host",
+    "port": "your port",
+    "username": "elamira_tuculo",    
+    "password": "your pass",
+    "schema": "your scheme",
+    "options": "charset=utf8mb4&parseTime=True&loc=Local"
+}

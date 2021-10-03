@@ -25,6 +25,7 @@ func (bytes *Relation) ToPrettyJson() (string, error) {
 type BD interface {
 	Close() error
 	Relations(table string) (Relation, error)
+	GetStructure(table string) ([]string, error)
 }
 
 type Connection interface {
