@@ -135,12 +135,12 @@ func getStructureResult(db *Maria, table string) ([]Columns, error) {
 	return columns, err
 }
 
-func referenced(db *Maria, table string) ([]string, error) {
+func referenced(db *Maria, table string) ([]sql.NullString, error) {
 	strSql := strings.ReplaceAll(strings.ReplaceAll(SQL_REFERENCED, "%SCHEME%", db.schema), "%TABLE%", table)
 	return querier(db, strSql)
 }
 
-func referencers(db *Maria, table string) ([]string, error) {
+func referencers(db *Maria, table string) ([]sql.NullString, error) {
 	var strSql string
 	if ExtendedQuery && len(ColumnToSearch) > 0 {
 		strSql = sqlExtended(db.schema)
@@ -155,11 +155,11 @@ func referencers(db *Maria, table string) ([]string, error) {
 	return referencers, err
 }
 
-func querier(db *Maria, strSql string) ([]string, error) {
+func querier(db *Maria, strSql string) ([]sql.NullString, error) {
 	results, err := db.db.Query(strSql)
-	var relatives []string
+	var relatives []sql.NullString
 
-	relative := ""
+	relative := sql.NullString{}
 	for results.Next() {
 		err = results.Scan(&relative)
 		if err != nil {

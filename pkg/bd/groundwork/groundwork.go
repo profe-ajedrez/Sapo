@@ -1,6 +1,8 @@
 package groundwork
 
 import (
+	"database/sql"
+
 	"github.com/profe-ajedrez/sapo/pkg/json/formatter"
 )
 
@@ -10,8 +12,8 @@ type Relationable interface {
 
 type Relation struct {
 	Table    string `default:""`
-	Refered  []string
-	Refering []string
+	Refered  []sql.NullString
+	Refering []sql.NullString
 }
 
 func (bytes *Relation) ToJson() (string, error) {
